@@ -1,3 +1,4 @@
+/* eslint-disable no-unused-vars */
 // src/components/Dashboard.jsx
 
 import React, { useState } from 'react';
@@ -7,6 +8,10 @@ import './Dashboard.css'; // Optional: Import CSS for styling
 
 const Dashboard = () => {
   const navigate = useNavigate();
+
+  const handleMovieForm = () => {
+    navigate('/add-movie');
+  };
 
   // Sample movie data. In a real application, this might come from an API or global state.
   const [movies, setMovies] = useState([
@@ -36,6 +41,9 @@ const Dashboard = () => {
       <header className="dashboard-header">
         <h1>Movie Collection</h1>
       </header>
+      <button onClick={handleMovieForm}>
+        Add Book
+      </button>
       <div className="movie-list">
         {movies.map((movie) => (
           <MovieCard key={movie.id} movie={movie} />
